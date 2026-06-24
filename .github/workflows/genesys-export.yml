@@ -1,6 +1,7 @@
 name: Genesys Cloud Configuration Export
 on:
-  workflow_dipatch:
+  push:
+    branches: [main]
 
 permissions:
   contents: write
