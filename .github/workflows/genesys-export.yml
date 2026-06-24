@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GENESYSCLOUD_CLIENT_ID: ${{secrets.GENESYSCLOUD_CLIENT_ID}}
-      GENESYSCLOUD_CLIENT_SECRET: ${{secrets.GENESYSCLOUD_CLIENT_SECRET}}
-      GENESYSCLOUD_REGION: ${{secrets.GENESYSCLOUD_REGION}}
+      GENESYSCLOUD_CLIENT_ID: ${{ secrets.GENESYSCLOUD_CLIENT_ID }}
+      GENESYSCLOUD_CLIENT_SECRET: ${{ secrets.GENESYSCLOUD_CLIENT_SECRET }}
+      GENESYSCLOUD_REGION: ${{ secrets.GENESYSCLOUD_REGION }}
 
     steps:
       - name: Checkout Repository
@@ -29,9 +29,9 @@ jobs:
       - name: Terraform apply
         run: terraform apply -auto-approve
         env:
-          GENESYSCLOUD_CLIENT_ID: ${{secrets.GENESYSCLOUD_CLIENT_ID}}
-          GENESYSCLOUD_CLIENT_SECRET: ${{secrets.GENESYSCLOUD_CLIENT_SECRET}}
-          GENESYSCLOUD_REGION: ${{secrets.GENESYSCLOUD_REGION}}
+          GENESYSCLOUD_CLIENT_ID: ${{ secrets.GENESYSCLOUD_CLIENT_ID }}
+          GENESYSCLOUD_CLIENT_SECRET: ${{ secrets.GENESYSCLOUD_CLIENT_SECRET }}
+          GENESYSCLOUD_REGION: ${{ secrets.GENESYSCLOUD_REGION }}
 
       - name: Commit and Push Exported Files
         run: |
