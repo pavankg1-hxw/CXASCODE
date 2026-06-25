@@ -8,7 +8,6 @@ terraform {
 }
 
 provider "genesyscloud" {
-    sdk_timeout = "10m"
 }
 
 
