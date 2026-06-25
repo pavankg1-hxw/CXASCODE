@@ -1,4 +1,13 @@
-resource "genesyscloud_routing_wrapupcode" "win" {
-  name        = "Win"
-  description = "Win test description"
+resource "genesyscloud_tf_export" "gc-datatable" {
+    directory               = "./genesyscloud-export"
+    compress                = false
+    export_as_hcl           = true
+    ignore_cyclic_deps      = true
+    enable_dependency_resolution  = true
+    split_files_by_resource = true
+    include_state_file      = false
+    log_permission_errors   = true
+    include_filter_resources =[
+        "genesyscloud_routing_wrapupcode::^Booking Cancel$"
+    ]
 }
