@@ -10,6 +10,10 @@ jobs:
   export-genesys:
     runs-on: ubuntu-latest
 
+    env:
+          TF_VAR_CLIENT_ID: ${{ secrets.GENESYSCLOUD_CLIENT_ID }}
+          TF_VAR_CLIENT_SECRET: ${{ secrets.GENESYSCLOUD_CLIENT_SECRET }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
