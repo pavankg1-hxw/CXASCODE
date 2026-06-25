@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-          GENESYSCLOUD_CLIENT_ID: ${{ secrets.GENESYSCLOUD_CLIENT_ID }}
-          GENESYSCLOUD_CLIENT_SECRET: ${{ secrets.GENESYSCLOUD_CLIENT_SECRET }}
-          GENESYSCLOUD_REGION: ${{ secrets.GENESYSCLOUD_REGION }}
+          TF_VAR_GENESYSCLOUD_CLIENT_ID: ${{ secrets.GENESYSCLOUD_CLIENT_ID }}
+          TF_VAR_GENESYSCLOUD_CLIENT_SECRET: ${{ secrets.GENESYSCLOUD_CLIENT_SECRET }}
+          TF_VAR_GENESYSCLOUD_REGION: ${{ secrets.GENESYSCLOUD_REGION }}
 
     steps:
       - name: Checkout Repository
