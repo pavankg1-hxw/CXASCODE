@@ -1,0 +1,35 @@
+name: Genesys Cloud Configuration Export
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+          TF_VAR_GENESYSCLOUD_CLIENT_ID: ${{ secrets.GENESYSCLOUD_CLIENT_ID }}
+          TF_VAR_GENESYSCLOUD_CLIENT_SECRET: ${{ secrets.GENESYSCLOUD_CLIENT_SECRET }}
+          TF_VAR_GENESYSCLOUD_REGION: ${{ secrets.GENESYSCLOUD_REGION }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.15.4"
+
+      - name: Terraform init
+        working-directory: Test
+        run: |
+          terraform init
+          terraform plan -out=tfplan
+
+      - name: Terraform apply
+        working-directory: Test
+        run: terraform apply -auto-approve
